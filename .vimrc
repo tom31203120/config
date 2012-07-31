@@ -1,13 +1,39 @@
-set nocompatible
+set nocompatible               " be iMproved
+filetype off                   " vundle required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdtree'
+Bundle 'majutsushi/tagbar'
+Bundle 'hallettj/jslint.vim'
+Bundle 'scrooloose/syntastic'
+" vim-scripts repos
+Bundle 'matchit.zip'
+" non github repos
+"Bundle 'git://git.wincent.com/command-t.git'
+
 
 "" 修改vimrc无需重启
 autocmd! bufwritepost _vimrc source %
 
-"缓冲区写入文件的时候自动检查文件类型
-"au BufWritePost * filet detect
-
 "设置冒号命令和搜索命令的历史记录长度
 set history=200
+
+"设定文件浏览器目录为当前目录
+set bsdir=buffer
+
+"配色
+color desert
+set background=dark
 
 "回显输入的命令
 set showcmd
@@ -35,6 +61,33 @@ set number
 
 "行高亮
 set cursorline
+
+"开启文件检测
+filetype plugin indent on
+
+"语法高亮
+syntax on
+
+"智能对齐方式
+set smartindent
+
+" tab占4个字符
+set shiftwidth=4
+
+" treat \t as how many spaces
+set tabstop=4
+
+"按一次tab前进4个字符
+set softtabstop=4
+
+"用空格替代tab
+set expandtab
+
+"自动缩进
+set autoindent
+
+"缩进的字符个数
+set cindent shiftwidth=4
 
 "vim内部使用的编码方式
 set encoding=utf-8
@@ -65,41 +118,9 @@ set statusline+=%-14.(%l,%c%V%)\ %<%P
 set nobackup
 set nowb
 
-"设定文件浏览器目录为当前目录
-set bsdir=buffer
-
-"配色方案
-color desert
-set background=dark
-
 "字体设置(含双字节字符字体，黑体)
 set guifont=Bitstream\ Vera\ Sans\ Mono:h10
 set guifontwide=Microsoft\ Yahei:h9
-
-"开启文件检测
-filetype plugin indent on
-
-"语法高亮
-syntax on
-
-"智能对齐方式
-set smartindent
-
-"tab占4个字符
-set tabstop=4
-
-"按一次tab前进4个字符
-set softtabstop=4
-
-"用空格替代tab
-set expandtab
-set smarttab 
-
-"自动缩进
-set autoindent
-
-"缩进的字符个数
-set cindent shiftwidth=4
 
 "即时搜索及反白显示第一个匹配
 set incsearch
@@ -135,8 +156,11 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 set wildmenu
 
-"设置粘贴模式
+" 设置粘贴模式
 set paste
+
+" 高亮限制行长度
+set colorcolumn=80
 
 " enable undo after file closed
 set undofile
@@ -144,14 +168,7 @@ set undodir=~/.vim/undodir
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
-"word separator exclude _
-"set iskeyword-=_
-
-"--- plugin
-"disable logging
-let g:js_indent_log = 0
-
-"tagbar
+" tagbar
 nmap <silent> <F5> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = 'ctags'
 let g:tagbar_width = 30
@@ -159,9 +176,12 @@ let g:tagbar_autofocus = 1
 let g:tagbar_autoshowtag = 1
 let g:tagbar_sort = 0
 
-"jslint
-nmap <silent> <F6> :JSLintUpdate<CR>
+" jslint
+nmap <silent> <F7> :JSLintUpdate<CR>
 
-"pylint
-autocmd FileType python compiler pylint
-let g:pylint_onwrite = 0
+" nerdtree
+nmap <silent> <F6> :NERDTreeToggle<CR>
+
+" syntastic
+nmap <silent> <F8> :SyntasticToggleMode<CR>
+let g:syntastic_check_on_open=1
