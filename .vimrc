@@ -174,6 +174,9 @@ set undodir=~/.vim/undodir
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
+" Automatically removing all trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
 " tagbar
 nmap <silent> <F5> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = 'ctags'
