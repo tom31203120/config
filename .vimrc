@@ -182,9 +182,6 @@ let g:tagbar_autofocus = 1
 let g:tagbar_autoshowtag = 1
 let g:tagbar_sort = 0
 
-" jslint
-nmap <silent> <F7> :JSLintUpdate<CR>
-
 " nerdtree
 nmap <silent> <F6> :NERDTreeToggle<CR>
 
