@@ -8,16 +8,22 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 
-" My Bundles here:
-"
-" original repos on github
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
-Bundle 'hallettj/jslint.vim'
 Bundle 'scrooloose/syntastic'
-" vim-scripts repos
 Bundle 'matchit.zip'
+" indent
+Bundle 'indentpython.vim'
+Bundle 'JavaScript-Indent'
+Bundle 'indenthtml.vim'
+" syntax
+Bundle 'python.vim'
+Bundle 'django.vim'
+Bundle 'JavaScript-syntax'
+Bundle 'jQuery'
+" coloscheme
+Bundle 'Zenburn'
+Bundle 'desertedocean.vim'
 " non github repos
 "Bundle 'git://git.wincent.com/command-t.git'
 
@@ -32,7 +38,7 @@ set history=200
 set bsdir=buffer
 
 "配色
-color desert
+color desertedocean
 set background=dark
 
 "回显输入的命令
