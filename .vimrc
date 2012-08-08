@@ -5,9 +5,9 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
-
+" plugins
 Bundle 'scrooloose/nerdtree'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
@@ -22,8 +22,16 @@ Bundle 'django.vim'
 Bundle 'JavaScript-syntax'
 Bundle 'jQuery'
 " coloscheme
-Bundle 'Zenburn'
+Bundle 'wombat256.vim'
+Bundle 'molokai'
 Bundle 'desertedocean.vim'
+" snipMate
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+Bundle "garbas/vim-snipmate"
+" pythoncomplete
+Bundle "pythoncomplete"
 " non github repos
 "Bundle 'git://git.wincent.com/command-t.git'
 
@@ -162,8 +170,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 set wildmenu
 
-" 设置粘贴模式
-set paste
+" 设置非粘贴模式
+set nopaste
 
 " 高亮限制行长度
 set colorcolumn=80
