@@ -32,6 +32,9 @@ Bundle "honza/snipmate-snippets"
 Bundle "garbas/vim-snipmate"
 " pythoncomplete
 Bundle "pythoncomplete"
+Bundle "pep8"
+Bundle "fugitive.vim"
+Bundle "vimbuddy.vim"
 " non github repos
 "Bundle 'git://git.wincent.com/command-t.git'
 
@@ -113,7 +116,7 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set laststatus=2
 set statusline=
 set statusline+=%2*%-3.3n%0*\
-set statusline+=%f\
+set statusline+=%F\
 set statusline+=%h%1*%m%r%w%0*
 set statusline+=[
 if v:version >= 600
@@ -124,6 +127,7 @@ set statusline+=%{&fileformat}]
 if filereadable(expand("$VIM/vimfiles/plugin/vimbuddy.vim"))
     set statusline+=\ %{VimBuddy()}
 endif
+set statusline+=%{fugitive#statusline()}
 set statusline+=%=
 set statusline+=0x%-8B\
 set statusline+=%-14.(%l,%c%V%)\ %<%P
@@ -186,7 +190,7 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 autocmd BufWritePre * :%s/\s\+$//e
 
 " tagbar
-nmap <silent> <F5> :TagbarToggle<CR>
+nmap <silent> <F4> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = 'ctags'
 let g:tagbar_width = 30
 let g:tagbar_autofocus = 1

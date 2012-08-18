@@ -1,0 +1,10 @@
+// vim: filetype=javascript
+{
+    "undef": true,
+    "trailing": true,
+    "curly": true,
+    "sub": true,
+    "jquery": true,
+    "boss": false, //This option suppresses warnings about the use of assignments in cases where comparisons are expected.
+    "asi": false // suppresses warnings about missing semicolons
+}
