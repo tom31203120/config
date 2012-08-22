@@ -1,10 +1,16 @@
 // vim: filetype=javascript
+/*
+config for jshint,
+doc: http://www.jshint.com/docs/
+*/
 {
     "undef": true,
     "trailing": true,
     "curly": true,
     "sub": true,
     "jquery": true,
-    "boss": false, //This option suppresses warnings about the use of assignments in cases where comparisons are expected.
+    "eqeqeq": false,
+    "browser": true, // This option defines globals exposed by modern browsers
+    "boss": false, // This option suppresses warnings about the use of assignments in cases where comparisons are expected.
     "asi": false // suppresses warnings about missing semicolons
 }
