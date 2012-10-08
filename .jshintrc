@@ -4,6 +4,7 @@ config for jshint,
 doc: http://www.jshint.com/docs/
 */
 {
+    "lastsemic": false,
     "undef": true,
     "trailing": true,
     "curly": true,
