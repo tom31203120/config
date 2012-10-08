@@ -1,6 +1,8 @@
 set nocompatible               " be iMproved
 filetype off                   " vundle required!
 
+" install vundle first
+" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -16,6 +18,7 @@ Bundle 'matchit.zip'
 Bundle 'indentpython.vim'
 Bundle 'JavaScript-Indent'
 Bundle 'indenthtml.vim'
+Bundle 'nginx.vim'
 " syntax
 Bundle 'python.vim'
 Bundle 'django.vim'
