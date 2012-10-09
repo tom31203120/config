@@ -5,8 +5,3 @@ alias copy='copy -i'
 export TERM=xterm-256color
 
 REPOS=$HOME/repos
-
-alias a-g='sudo apache2ctl graceful'
-alias a-r='sudo apache2ctl restart'
-alias s-a='cd $REPOS/adminsite/module/ssldjango/'
-alias s-f='cd $REPOS/fangsite/module/ssldjango/'
