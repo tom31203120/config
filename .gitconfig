@@ -1,0 +1,22 @@
+[user]
+    name = yushengjun
+    email = yushengjun@99fang.com
+[alias]
+    st = status
+    s = status -sb
+    df = diff
+    ci = commit
+    co = checkout
+    rb = rebase
+    br = branch
+    ph = push
+    pl = pull
+    f = fetch
+    r = remote
+    rv = remote -v
+    mg = merge
+    dw = diff --word-diff
+[color]
+    ui = auto
+[core]
+    autocrlf = input
