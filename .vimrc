@@ -35,7 +35,7 @@ Bundle "honza/snipmate-snippets"
 Bundle "garbas/vim-snipmate"
 " pythoncomplete
 Bundle "pythoncomplete"
-Bundle "pep8"
+" git
 Bundle "fugitive.vim"
 Bundle "vimbuddy.vim"
 " non github repos
