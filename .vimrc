@@ -141,7 +141,6 @@ set nowb
 
 "字体设置(含双字节字符字体，黑体)
 set guifont=Bitstream\ Vera\ Sans\ Mono:h10
-set guifontwide=Microsoft\ Yahei:h9
 
 "即时搜索及反白显示第一个匹配
 set incsearch
@@ -193,7 +192,7 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 autocmd BufWritePre * :%s/\s\+$//e
 
 " tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
+nmap <silent> <F5> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = 'ctags'
 let g:tagbar_width = 30
 let g:tagbar_autofocus = 1
@@ -206,3 +205,6 @@ nmap <silent> <F6> :NERDTreeToggle<CR>
 " syntastic
 nmap <silent> <F8> :SyntasticToggleMode<CR>
 let g:syntastic_check_on_open=1
+
+" highlight nginx
+au BufRead,BufNewFile /etc/nginx/* set filetype=nginx
