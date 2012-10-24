@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+CURRENT_DIR=`dirname $0`
+if [ $CURRENT_DIR = '.' ];then
+    CURRENT_DIR=`pwd`
+fi
+echo $CURRENT_DIR
+
+ln -sif $CURRENT_DIR/.gitconfig $HOME/
+ln -sif $CURRENT_DIR/.jshintrc $HOME/
+ln -sif $CURRENT_DIR/.pylintrc $HOME/
+ln -sif $CURRENT_DIR/.tmux.conf $HOME/
+ln -sif $CURRENT_DIR/.vimrc $HOME/
+ln -sif $CURRENT_DIR/.bash_custom $HOME/
