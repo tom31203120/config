@@ -29,26 +29,24 @@ Bundle 'wombat256.vim'
 Bundle 'molokai'
 Bundle 'desertedocean.vim'
 " snipMate
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
-Bundle "garbas/vim-snipmate"
-" pythoncomplete
-Bundle "pythoncomplete"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'honza/snipmate-snippets'
+Bundle 'garbas/vim-snipmate'
 " git
-Bundle "fugitive.vim"
-Bundle "vimbuddy.vim"
-" non github repos
-"Bundle 'git://git.wincent.com/command-t.git'
+Bundle 'fugitive.vim'
+" python-mode
+Bundle 'klen/python-mode'
+Bundle 'Lokaltog/vim-powerline'
 
 
 "" 修改vimrc无需重启
-autocmd! bufwritepost _vimrc source %
+"autocmd! bufwritepost .vimrc source %
 
 "设置冒号命令和搜索命令的历史记录长度
 set history=200
 
-"设定文件浏览器目录为当前目录
+" set current dir
 set bsdir=buffer
 
 "配色
@@ -115,34 +113,16 @@ set encoding=utf-8
 "vim中当前文件的字符编码方式
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 
-"状态栏显示设置
+" status bar, use powerline
 set laststatus=2
-set statusline=
-set statusline+=%2*%-3.3n%0*\
-set statusline+=%F\
-set statusline+=%h%1*%m%r%w%0*
-set statusline+=[
-if v:version >= 600
-    set statusline+=%{strlen(&ft)?&ft:'none'},
-    set statusline+=%{&fileencoding},
-endif
-set statusline+=%{&fileformat}]
-if filereadable(expand("$VIM/vimfiles/plugin/vimbuddy.vim"))
-    set statusline+=\ %{VimBuddy()}
-endif
-set statusline+=%{fugitive#statusline()}
-set statusline+=%=
-set statusline+=0x%-8B\
-set statusline+=%-14.(%l,%c%V%)\ %<%P
 
 "关闭备份,不产生swp文件
 set nobackup
 set nowb
 
-"字体设置(含双字节字符字体，黑体)
-set guifont=Bitstream\ Vera\ Sans\ Mono:h10
+set guifont=DejaVu\ Sans\ Mono:h11
 
-"即时搜索及反白显示第一个匹配
+" 增量搜索
 set incsearch
 
 "高亮搜索
@@ -172,7 +152,7 @@ set foldcolumn=4
 set fileformats=unix
 
 " 打开文件，返回上次光标位置
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 set wildmenu
 
@@ -182,14 +162,14 @@ set nopaste
 " 高亮限制行长度
 set colorcolumn=80
 
-" enable undo after file closed
+" undo even file closed
 set undofile
 set undodir=~/.vim/undodir
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
-" Automatically removing all trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
+" map keys
+let mapleader = ","
 
 " tagbar
 nmap <silent> <F5> :TagbarToggle<CR>
@@ -203,8 +183,22 @@ let g:tagbar_sort = 0
 nmap <silent> <F6> :NERDTreeToggle<CR>
 
 " syntastic
-nmap <silent> <F8> :SyntasticToggleMode<CR>
-let g:syntastic_check_on_open=1
+" disable python, use python-mode below instead
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'passive_filetypes': ['python'] }
 
 " highlight nginx
-au BufRead,BufNewFile /etc/nginx/* set filetype=nginx
+autocmd BufRead,BufNewFile /etc/nginx/* set filetype=nginx
+
+" python-mode
+map <C-l> :call RopeCodeAssist()
+let g:pymode_lint_onfly = 1
+let g:pymode_lint_cwindow = 0
+let g:pymode_lint_cheker = "pyflakes,pep8,pylint"
+autocmd BufWinEnter *.py PyLint
+let g:pymode_rope_guess_project = 0
+
+" powerline
+let g:Powerline_symbols = 'unicode'
+let g:Powerline_colorscheme = 'solarized256'
+autocmd filetype python inoremap <silent> <C-K> <C-R>=RopeCodeAssistInsertMode()<CR>

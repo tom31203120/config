@@ -12,6 +12,6 @@ Then, install vundle for vim
 
     $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-    inside vim
+inside vim
 
     : BundleInstall
