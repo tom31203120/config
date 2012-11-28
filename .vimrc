@@ -43,6 +43,8 @@ Bundle 'Lokaltog/vim-powerline'
 "" 修改vimrc无需重启
 "autocmd! bufwritepost .vimrc source %
 
+set go=
+
 "设置冒号命令和搜索命令的历史记录长度
 set history=200
 
@@ -112,6 +114,12 @@ set encoding=utf-8
 
 "vim中当前文件的字符编码方式
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+
+if has("win32")
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+    language messages zh_CN.utf-8
+endif
 
 " status bar, use powerline
 set laststatus=2
