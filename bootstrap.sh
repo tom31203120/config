@@ -11,4 +11,7 @@ ln -sif $CURRENT_DIR/.jshintrc $HOME/
 ln -sif $CURRENT_DIR/.pylintrc $HOME/
 ln -sif $CURRENT_DIR/.tmux.conf $HOME/
 ln -sif $CURRENT_DIR/.vimrc $HOME/
-ln -sif $CURRENT_DIR/.bash_custom $HOME/
+
+# install vundle
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
