@@ -41,7 +41,7 @@ Bundle 'Lokaltog/vim-powerline'
 
 
 "" 修改vimrc无需重启
-"autocmd! bufwritepost .vimrc source %
+autocmd! bufwritepost .vimrc source %
 
 set go=
 
@@ -88,12 +88,6 @@ filetype plugin indent on
 "语法高亮
 syntax on
 
-"智能对齐方式
-set smartindent
-
-" tab占4个字符
-set shiftwidth=4
-
 " treat \t as how many spaces
 set tabstop=4
 
@@ -103,11 +97,13 @@ set softtabstop=4
 "用空格替代tab
 set expandtab
 
-"自动缩进
-set autoindent
+set smarttab
 
 "缩进的字符个数
-set cindent shiftwidth=4
+set shiftwidth=4
+
+"智能缩进
+set smartindent
 
 "vim内部使用的编码方式
 set encoding=utf-8
@@ -204,9 +200,16 @@ let g:pymode_lint_onfly = 1
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_cheker = "pylint,pep8,mccabe"
 let g:pymode_rope_guess_project = 0
-autocmd BufWinEnter *.py PyLint
+if exists("PyLint")
+    autocmd BufWinEnter *.py PyLint
+endif
 autocmd filetype python inoremap <silent> <C-K> <C-R>=RopeCodeAssistInsertMode()<CR>
 
 " powerline
 let g:Powerline_symbols = 'unicode'
 let g:Powerline_colorscheme = 'solarized256'
+
+try
+	source $HOME/.vimrc_custom
+catch /.*/
+endtry
