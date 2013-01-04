@@ -15,3 +15,5 @@ ln -sif $CURRENT_DIR/.vimrc $HOME/
 # install vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
+# make dir for undo history
+mkdir -p ~/.vim/undodir
