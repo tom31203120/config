@@ -196,13 +196,13 @@ autocmd BufRead,BufNewFile /etc/nginx/* set filetype=nginx
 
 " python-mode
 map <C-l> :call RopeCodeAssist()
-let g:pymode_lint_onfly = 1
+let g:pymode_lint_onfly = 0
+let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
-let g:pymode_lint_cheker = "pylint,pep8,mccabe"
+let g:pymode_lint_checker = 'pyflakes,pep8'
+let g:pymode_lint_ignore = 'W0142,F0401,E1103,C0301'
 let g:pymode_rope_guess_project = 0
-if exists("PyLint")
-    autocmd BufWinEnter *.py PyLint
-endif
+autocmd BufWinEnter *.py PyLint
 autocmd filetype python inoremap <silent> <C-K> <C-R>=RopeCodeAssistInsertMode()<CR>
 
 " powerline
