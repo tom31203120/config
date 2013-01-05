@@ -39,7 +39,6 @@ Bundle 'fugitive.vim'
 Bundle 'klen/python-mode'
 Bundle 'Lokaltog/vim-powerline'
 
-
 "" 修改vimrc无需重启
 autocmd! bufwritepost .vimrc source %
 
@@ -102,7 +101,8 @@ set smarttab
 "缩进的字符个数
 set shiftwidth=4
 
-"智能缩进
+"缩进
+set autoindent
 set smartindent
 
 "vim内部使用的编码方式
@@ -195,7 +195,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
 autocmd BufRead,BufNewFile /etc/nginx/* set filetype=nginx
 
 " python-mode
-map <C-l> :call RopeCodeAssist()
 let g:pymode_lint_onfly = 0
 let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
@@ -203,7 +202,10 @@ let g:pymode_lint_checker = 'pyflakes,pep8'
 let g:pymode_lint_ignore = 'W0142,F0401,E1103,C0301'
 let g:pymode_rope_guess_project = 0
 autocmd BufWinEnter *.py PyLint
-autocmd filetype python inoremap <silent> <C-K> <C-R>=RopeCodeAssistInsertMode()<CR>
+" disable python-mode RopeCodeAssistInsertMode Key binding
+map <C-Space> <nop>
+autocmd filetype python map <Leader>g :call RopeGotoDefinition()
+autocmd filetype python inoremap <silent> <C-o> <C-R>=RopeCodeAssistInsertMode()<CR>
 
 " powerline
 let g:Powerline_symbols = 'unicode'
