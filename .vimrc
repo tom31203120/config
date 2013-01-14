@@ -60,7 +60,7 @@ set showcmd
 "显示当前的模式
 set showmode
 
-"不显示工具栏
+" no toolbar
 set guioptions-=T
 
 "在插入和选块模式下启用鼠标
@@ -152,8 +152,8 @@ set foldmethod=indent
 set foldlevel=3
 set foldcolumn=4
 
-"保存文件格式的顺序...放在后面比较有效果
-set fileformats=unix
+"试探换行符类型的顺序...
+set fileformats=unix,dos
 
 " 打开文件，返回上次光标位置
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
@@ -205,7 +205,7 @@ autocmd BufWinEnter *.py PyLint
 " disable python-mode RopeCodeAssistInsertMode Key binding
 map <C-Space> <nop>
 autocmd filetype python map <Leader>g :call RopeGotoDefinition()
-autocmd filetype python inoremap <silent> <C-o> <C-R>=RopeCodeAssistInsertMode()<CR>
+autocmd filetype python inoremap <silent> <C-K> <C-R>=RopeCodeAssistInsertMode()<CR>
 
 " powerline
 let g:Powerline_symbols = 'unicode'
