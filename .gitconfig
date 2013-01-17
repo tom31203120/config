@@ -20,5 +20,6 @@
 [color]
     ui = auto
 [core]
-    autocrlf = input
+    autocrlf = false
     editor = vim
+    safecrlf = true
