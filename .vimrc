@@ -17,7 +17,7 @@ Bundle 'matchit.zip'
 " indent
 Bundle 'indentpython.vim'
 Bundle 'JavaScript-Indent'
-Bundle 'indenthtml.vim'
+Bundle 'Valloric/python-indent'
 Bundle 'nginx.vim'
 " syntax
 Bundle 'python.vim'
@@ -98,7 +98,7 @@ set smarttab
 "缩进的字符个数
 set shiftwidth=4
 "缩进
-set smartindent
+set cindent
 set autoindent
 
 set listchars=tab:>-
