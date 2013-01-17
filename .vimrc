@@ -89,21 +89,19 @@ syntax on
 
 " treat \t as how many spaces
 set tabstop=4
-
 "按一次tab前进4个字符
 set softtabstop=4
-
 "用空格替代tab
 set expandtab
-
 set smarttab
 
 "缩进的字符个数
 set shiftwidth=4
-
 "缩进
-set autoindent
 set smartindent
+set autoindent
+
+set listchars=tab:>-
 
 "vim内部使用的编码方式
 set encoding=utf-8
@@ -128,19 +126,15 @@ set guifont=DejaVu\ Sans\ Mono:h11
 
 " 增量搜索
 set incsearch
-
 "高亮搜索
 set hlsearch
-
 "循环搜索
 set wrapscan
-
 "搜索时忽略大小写
 set ignorecase
 
 "输入括号时短暂跳到与之相匹配之处
 set showmatch
-
 "匹配括号的规则，增加针对html的<>
 set matchpairs=(:),{:},[:],<:>
 
@@ -174,6 +168,8 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
 " map keys
 let mapleader = ","
+
+autocmd filetype python setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 " tagbar
 nmap <silent> <F5> :TagbarToggle<CR>
