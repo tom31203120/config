@@ -188,8 +188,9 @@ nmap <silent> <F6> :NERDTreeToggle<CR>
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': ['python'] }
 
-" highlight nginx
+" highlight
 autocmd BufRead,BufNewFile /etc/nginx/* set filetype=nginx
+autocmd BufRead,BufNewFile *.conf set filetype=conf
 
 " python-mode
 let g:pymode_lint_onfly = 0
