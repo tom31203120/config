@@ -24,6 +24,7 @@ Bundle 'python.vim'
 Bundle 'django.vim'
 Bundle 'JavaScript-syntax'
 Bundle 'jQuery'
+Bundle 'plasticboy/vim-markdown'
 " coloscheme
 Bundle 'wombat256.vim'
 Bundle 'molokai'
