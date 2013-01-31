@@ -83,6 +83,7 @@ set number
 set cursorline
 
 "开启文件检测
+filetype on
 filetype plugin indent on
 
 "语法高亮
@@ -93,8 +94,21 @@ set tabstop=4
 "按一次tab前进4个字符
 set softtabstop=4
 "用空格替代tab
-set expandtab
 set smarttab
+set expandtab
+function! AutoNoexpandtab()
+    " check if should expandtab
+    let tab_lines_num = 0
+    for line in getline(15, 15 + 40)
+        if line =~ '^	.*'
+            let tab_lines_num += 1
+        endif
+    endfor
+    if tab_lines_num > 2
+        setlocal noexpandtab
+    endif
+endfunction
+autocmd BufWinEnter *.py :call AutoNoexpandtab()
 
 "缩进的字符个数
 set shiftwidth=4
