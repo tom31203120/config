@@ -9,10 +9,8 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
+
 " plugins
-Bundle 'scrooloose/nerdtree'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/syntastic'
 Bundle 'matchit.zip'
 " indent
 Bundle 'indentpython.vim'
@@ -36,9 +34,6 @@ Bundle 'honza/snipmate-snippets'
 Bundle 'garbas/vim-snipmate'
 " git
 Bundle 'fugitive.vim'
-" python-mode
-Bundle 'klen/python-mode'
-Bundle 'Lokaltog/vim-powerline'
 
 "" 修改vimrc无需重启
 autocmd! bufwritepost .vimrc source %
@@ -184,9 +179,14 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 " map keys
 let mapleader = ","
 
+" highlight
+autocmd BufRead,BufNewFile /etc/nginx/* set filetype=nginx
+autocmd BufRead,BufNewFile *.conf set filetype=conf
+
 autocmd filetype python setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class
 
 " tagbar
+Bundle 'majutsushi/tagbar'
 nmap <silent> <F5> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = 'ctags'
 let g:tagbar_width = 30
@@ -195,18 +195,17 @@ let g:tagbar_autoshowtag = 1
 let g:tagbar_sort = 0
 
 " nerdtree
+Bundle 'scrooloose/nerdtree'
 nmap <silent> <F6> :NERDTreeToggle<CR>
 
 " syntastic
+Bundle 'scrooloose/syntastic'
 " disable python, use python-mode below instead
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': ['python'] }
 
-" highlight
-autocmd BufRead,BufNewFile /etc/nginx/* set filetype=nginx
-autocmd BufRead,BufNewFile *.conf set filetype=conf
-
 " python-mode
+Bundle 'klen/python-mode'
 let g:pymode_lint_onfly = 0
 let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
@@ -217,13 +216,20 @@ autocmd BufWinEnter *.py PyLint
 " disable python-mode RopeCodeAssistInsertMode Key binding
 map <C-Space> <nop>
 autocmd filetype python map <Leader>g :call RopeGotoDefinition()
-autocmd filetype python inoremap <silent> <C-K> <C-R>=RopeCodeAssistInsertMode()<CR>
 
 " powerline
+Bundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols = 'unicode'
 let g:Powerline_colorscheme = 'solarized256'
 
+" jedi
+Bundle 'davidhalter/jedi-vim'
+let g:jedi#popup_on_dot = 0
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#related_names_command = "<leader>n"
+let g:jedi#autocompletion_command = "<C-k>"
+
 try
-	source $HOME/.vimrc_custom
+    source $HOME/.vimrc_custom
 catch /.*/
 endtry
