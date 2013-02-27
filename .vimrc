@@ -210,7 +210,7 @@ let g:pymode_lint_onfly = 0
 let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_checker = 'pyflakes,pep8'
-let g:pymode_lint_ignore = 'W0142,F0401,E1103,C0301'
+let g:pymode_lint_ignore = 'E501,W0142,F0401,E1103,C0301'
 let g:pymode_rope_guess_project = 0
 autocmd BufWinEnter *.py PyLint
 " disable python-mode RopeCodeAssistInsertMode Key binding
@@ -228,6 +228,9 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#related_names_command = "<leader>n"
 let g:jedi#autocompletion_command = "<C-k>"
+
+" jade
+Bundle 'digitaltoad/vim-jade'
 
 try
     source $HOME/.vimrc_custom
