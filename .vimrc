@@ -91,7 +91,7 @@ set softtabstop=4
 "用空格替代tab
 set smarttab
 set expandtab
-function! AutoNoexpandtab()
+function! AutoExpandtab()
     " check if should expandtab
     let tab_lines_num = 0
     for line in getline(15, 15 + 40)
@@ -103,7 +103,7 @@ function! AutoNoexpandtab()
         setlocal noexpandtab
     endif
 endfunction
-autocmd BufWinEnter *.py :call AutoNoexpandtab()
+autocmd BufWinEnter *.py :call AutoExpandtab()
 
 "缩进的字符个数
 set shiftwidth=4
@@ -210,12 +210,13 @@ let g:pymode_lint_onfly = 0
 let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_checker = 'pyflakes,pep8'
-let g:pymode_lint_ignore = 'E501,W0142,F0401,E1103,C0301'
+let g:pymode_lint_ignore = 'E501,W0142,F0401,E1103,C0301,W191,E122,E123'
 let g:pymode_rope_guess_project = 0
 autocmd BufWinEnter *.py PyLint
 " disable python-mode RopeCodeAssistInsertMode Key binding
 map <C-Space> <nop>
-autocmd filetype python map <Leader>g :call RopeGotoDefinition()
+autocmd filetype python nmap <Leader>g :call RopeGotoDefinition()
+autocmd filetype python nmap F :PyLintAuto<CR>
 
 " powerline
 Bundle 'Lokaltog/vim-powerline'
