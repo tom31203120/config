@@ -4,10 +4,6 @@ Some config files
 Installation
 ---
 
-First
+Just
 
     $ bash bootstrap.sh
-
-Then, inside vim
-
-    : BundleInstall

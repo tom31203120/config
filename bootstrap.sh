@@ -17,3 +17,6 @@ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 # make dir for undo history
 mkdir -p ~/.vim/undodir
+
+# install vim plugins
+vim -c 'BundleInstall'
