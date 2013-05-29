@@ -10,7 +10,6 @@ call vundle#rc()
 " required!
 Bundle 'gmarik/vundle'
 
-" plugins
 Bundle 'matchit.zip'
 " indent
 Bundle 'indentpython.vim'
@@ -30,8 +29,8 @@ Bundle 'desertedocean.vim'
 " snipMate
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
-Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 " git
 Bundle 'fugitive.vim'
 
@@ -210,7 +209,7 @@ let g:pymode_lint_onfly = 0
 let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_checker = 'pyflakes,pep8'
-let g:pymode_lint_ignore = 'E501,W0142,F0401,E1103,C0301,W191,E122,E123'
+let g:pymode_lint_ignore = 'E501,W0142,F0401,E1103,C0301,W191,E122,E123,E124,E128,E126,E226,E231'
 let g:pymode_rope_guess_project = 0
 autocmd BufWinEnter *.py PyLint
 " disable python-mode RopeCodeAssistInsertMode Key binding
