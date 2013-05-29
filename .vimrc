@@ -79,7 +79,8 @@ set cursorline
 
 "开启文件检测
 filetype on
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 
 "语法高亮
 syntax on
@@ -203,9 +204,11 @@ Bundle 'scrooloose/syntastic'
 " disable python, use python-mode below instead
 let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': ['python'] }
+let g:syntastic_python_checkers = ['pylint']
+"autocmd BufWinEnter *.py SyntasticCheck
 
 " python-mode
-Bundle 'klen/python-mode'
+Bundle 'Python-mode-klen'
 let g:pymode_lint_onfly = 0
 let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
@@ -217,18 +220,19 @@ autocmd BufWinEnter *.py PyLint
 map <C-Space> <nop>
 autocmd filetype python nmap <Leader>g :call RopeGotoDefinition()
 autocmd filetype python nmap F :PyLintAuto<CR>
+autocmd filetype python inoremap <silent> <C-K> <C-R>=RopeCodeAssistInsertMode()<CR>
 
 " powerline
 Bundle 'Lokaltog/vim-powerline'
 let g:Powerline_symbols = 'unicode'
 let g:Powerline_colorscheme = 'solarized256'
 
-" jedi
-Bundle 'davidhalter/jedi-vim'
-let g:jedi#popup_on_dot = 0
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#related_names_command = "<leader>n"
-let g:jedi#autocompletion_command = "<C-k>"
+" jedi, disable it for exception when enter insert mode
+"Bundle 'davidhalter/jedi-vim'
+"let g:jedi#popup_on_dot = 0
+"let g:jedi#rename_command = "<leader>r"
+"let g:jedi#related_names_command = "<leader>n"
+"let g:jedi#autocompletion_command = "<C-k>"
 
 " jade
 Bundle 'digitaltoad/vim-jade'
