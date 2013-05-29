@@ -33,6 +33,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 " git
 Bundle 'fugitive.vim'
+Bundle 'jnwhiteh/vim-golang'
 
 "" 修改vimrc无需重启
 autocmd! bufwritepost .vimrc source %
