@@ -236,6 +236,7 @@ let g:Powerline_colorscheme = 'solarized256'
 
 " jade
 Bundle 'digitaltoad/vim-jade'
+Bundle 'saltstack/salt-vim'
 
 try
     source $HOME/.vimrc_custom
