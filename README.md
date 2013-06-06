@@ -17,12 +17,12 @@ Installation
 
 1. update /etc/salt/minion
 
-    file_client: local
+    `file_client: local`
 
 1. install vim plugins
 
-    vim -c 'BundleInstall'
+    `vim -c 'BundleInstall'`
 
 1. run
 
-    salt-call state.highstate
+    `salt-call state.highstate`
