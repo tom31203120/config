@@ -1,10 +1,8 @@
 nodejs:
-    pkg:
-        - installed
+    pkg.installed
 
 npm:
-    pkg:
-        - installed
+    pkg.installed:
         - require:
             - pkg: nodejs
 

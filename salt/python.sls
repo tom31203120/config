@@ -1,7 +1,11 @@
 python:
     pkg:
         - installed
-        - name: {{ pillar['pkgs']['python'] }}
+        - names:
+            -  {{ pillar['pkgs']['python'] }}
+{% if grains['os_family'] != 'Arch'  %}
+            - python-dev
+{% endif %}
 
 python-pkgs:
     pkg:
@@ -22,3 +26,19 @@ pip-pkgs:
             - virtualenvwrapper
         - require:
             - pkg: python-pkgs
+
+gevent:
+    pip.installed:
+        - require:
+            - pkg: libevent-dev
+            - pkg: gcc
+
+distribute:
+    pip.installed:
+        - upgrade: True
+
+MySQL-python:
+    pip.installed:
+        - require:
+            - pkg: libmysqlclient-dev
+            - pip.installed: distribute

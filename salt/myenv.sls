@@ -16,7 +16,6 @@ myenv-pkgs:
 {% endif %}
         - require:
             - pkg: vim
-            - pkg: nodejs
 
 oh_my_zsh:
     git.latest:
@@ -46,6 +45,8 @@ config_repo:
         - name: git@github.com:apieceofredcloth/config.git
         - require:
             - file.directory: proj_directory
+            - file.managed: ssh
+            - pkg.installed: ssh
 
 vim_vundle_repo:
     git.latest:
@@ -55,6 +56,7 @@ vim_vundle_repo:
         - name: git@github.com:gmarik/vundle.git
         - require:
             - pkg: vim
+            - pkg.installed: ssh
 
 {% for config_file in ['.gitconfig', '.jshintrc', '.pylintrc', '.tmux.conf', '.vimrc'] %}
 {{ pillar['core']['home'] }}/{{config_file}}:

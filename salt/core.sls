@@ -17,5 +17,15 @@ vim:
 utils:
     pkg:
         - installed
-        - names: 
+        - names:
             - mlocate
+
+libevent-dev:
+    pkg.installed
+
+libmysqlclient-dev:
+    pkg.installed
+
+gcc:
+    pkg:
+        - installed
