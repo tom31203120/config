@@ -9,6 +9,7 @@ vim:
 
     file.directory:
         - user: {{ pillar['core']['user'] }}
+        - group: {{ pillar['core']['user'] }}
         - makedirs: True
         - name: {{ pillar['core']['home'] }}/.vim/undodir
         - require:

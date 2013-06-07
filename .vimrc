@@ -16,6 +16,7 @@ Bundle 'JavaScript-Indent'
 Bundle 'Valloric/python-indent'
 Bundle 'nginx.vim'
 " syntax
+Bundle 'saltstack/salt-vim'
 Bundle 'python.vim'
 Bundle 'django.vim'
 Bundle 'JavaScript-syntax'
@@ -235,7 +236,6 @@ let g:Powerline_colorscheme = 'solarized256'
 
 " jade
 Bundle 'digitaltoad/vim-jade'
-Bundle 'saltstack/salt-vim'
 
 try
     source $HOME/.vimrc_custom

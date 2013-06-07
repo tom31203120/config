@@ -34,6 +34,7 @@ oh_my_zsh:
 proj_directory:
     file.directory:
         - user: {{ pillar['core']['user'] }}
+        - group: {{ pillar['core']['user'] }}
         - makedirs: True
         - name: {{ pillar['core']['home'] }}/proj/
 
@@ -62,6 +63,7 @@ vim_vundle_repo:
 {{ pillar['core']['home'] }}/{{config_file}}:
     file.symlink:
         - user: {{ pillar['core']['user'] }}
+        - group: {{ pillar['core']['user'] }}
         - target: {{ pillar['core']['home'] }}/proj/config/{{config_file}}
         - require:
             - git: config_repo
