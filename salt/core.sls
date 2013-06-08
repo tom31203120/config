@@ -2,6 +2,10 @@ nginx:
     pkg:
         - installed
 
+git:
+    pkg:
+        - installed
+
 vim:
     pkg:
         - installed

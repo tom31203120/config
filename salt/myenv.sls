@@ -46,7 +46,7 @@ config_repo:
         - name: git@github.com:apieceofredcloth/config.git
         - require:
             - file.directory: proj_directory
-            - file.managed: ssh
+            - file.managed: ssh_private_key
             - pkg.installed: ssh
 
 vim_vundle_repo:
