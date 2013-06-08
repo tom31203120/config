@@ -7,12 +7,14 @@ python:
             - python-dev
 {% endif %}
 
-python-pkgs:
-    pkg:
-        - installed
-        - names:
-            - python-pip
-            - python-imaging
+pip:
+    pkg.installed:
+        - name: python-pip
+        - require:
+            - pkg: python
+
+python-imaging:
+    pkg.installed:
         - require:
             - pkg: python
 
@@ -23,9 +25,8 @@ pip-pkgs:
             - ipython
             - ipdb
             - tornado
-            - virtualenvwrapper
         - require:
-            - pkg: python-pkgs
+            - pkg: pip
 
 gevent:
     pip.installed:
@@ -42,3 +43,17 @@ MySQL-python:
         - require:
             - pkg: libmysqlclient-dev
             - pip.installed: distribute
+
+virtualenvwrapper:
+    pip.installed:
+        - name: virtualenvwrapper
+        - require:
+            - pkg: pip
+    file.append:
+        - name: {{ pillar['core']['home'] }}/.zshrc
+        - text:
+            - export WORKON_HOME=$HOME/.virtualenvs
+            - export PROJECT_HOME=$HOME/Devel
+            - source /usr/local/bin/virtualenvwrapper.sh
+        - require:
+            - pkg: zsh

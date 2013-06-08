@@ -72,3 +72,10 @@ vim_vundle_repo:
             - npm.installed: npm-pkgs 
             - pip.installed: pip-pkgs
 {% endfor %}
+
+dev_proj_directory:
+    file.directory:
+        - user: {{ pillar['core']['user'] }}
+        - group: {{ pillar['core']['user'] }}
+        - makedirs: True
+        - name: {{ pillar['core']['home'] }}/repos/
