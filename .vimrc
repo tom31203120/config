@@ -69,7 +69,7 @@ set backspace=start,indent,eol
 "使关联系统的剪贴板
 set clipboard+=unnamed
 
-"总是显示当前光标位置
+" 高亮当前行
 set ruler
 
 "显示行号
@@ -169,6 +169,16 @@ set nopaste
 
 " 高亮限制行长度
 set colorcolumn=80
+nmap <Leader>c :call SetColorColumn()<CR>
+function! SetColorColumn()
+    let col_num = virtcol(".")
+    let cc_list = split(&cc, ',')
+    if count(cc_list, string(col_num)) <= 0
+        execute "set cc+=".col_num
+    else
+        execute "set cc-=".col_num
+    endif
+endfunction
 
 " undo even file closed
 set undofile
@@ -244,9 +254,7 @@ Bundle "kchmck/vim-coffee-script"
 autocmd BufRead,BufNewFile *.coffee set filetype=coffee
 au bufwritepost *.coffee silent execute '!coffee -cm %'
 
-Bundle "nathanaelkane/vim-indent-guides"
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+Bundle "Yggdroot/indentLine"
 
 try
     source $HOME/.vimrc_custom
