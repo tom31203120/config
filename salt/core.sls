@@ -34,3 +34,7 @@ libmysqlclient-dev:
 gcc:
     pkg:
         - installed
+
+libmemcached-dev:
+    pkg:
+        - installed

@@ -9,7 +9,7 @@ myenv-pkgs:
             - wget
             - tmux 
             - ctags
-{% if grains['os'] != 'Debian' %}
+{% if grains['os_family'] != 'Debian' %}
             - ack
 {% else %}
             - ack-grep
