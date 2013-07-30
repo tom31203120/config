@@ -21,11 +21,8 @@ Bundle 'jgb/django.vim'
 Bundle 'JavaScript-syntax'
 Bundle 'jQuery'
 Bundle 'plasticboy/vim-markdown'
-" snipMate
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+" sinppets
+Bundle "SirVer/ultisnips"
 " git
 Bundle 'fugitive.vim'
 Bundle 'jnwhiteh/vim-golang'
