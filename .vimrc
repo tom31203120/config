@@ -11,21 +11,16 @@ Bundle 'gmarik/vundle'
 
 Bundle 'matchit.zip'
 " indent
-Bundle 'indentpython.vim'
 Bundle 'JavaScript-Indent'
 Bundle 'Valloric/python-indent'
 Bundle 'nginx.vim'
 " syntax
 Bundle 'saltstack/salt-vim'
 Bundle 'python.vim'
-Bundle 'django.vim'
+Bundle 'jgb/django.vim'
 Bundle 'JavaScript-syntax'
 Bundle 'jQuery'
 Bundle 'plasticboy/vim-markdown'
-" coloscheme
-Bundle 'wombat256.vim'
-Bundle 'molokai'
-Bundle 'desertedocean.vim'
 " snipMate
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -34,6 +29,8 @@ Bundle 'honza/vim-snippets'
 " git
 Bundle 'fugitive.vim'
 Bundle 'jnwhiteh/vim-golang'
+" coloscheme
+Bundle 'desertedocean.vim'
 
 "" 修改vimrc无需重启
 autocmd! bufwritepost .vimrc source %
@@ -44,11 +41,15 @@ set go=
 set history=200
 
 " set current dir
-set bsdir=buffer
+set browsedir=buffer
 
 "配色
-color desertedocean
 set background=dark
+if has("gui_running")
+    colorscheme koehler
+else
+    colorscheme desertedocean
+endif
 
 "回显输入的命令
 set showcmd
@@ -133,7 +134,8 @@ set laststatus=2
 set nobackup
 set nowb
 
-set guifont=DejaVu\ Sans\ Mono:h11
+set guifont=DejaVu\ Sans\ Mono:h12
+set linespace=2
 
 " 增量搜索
 set incsearch
@@ -160,9 +162,6 @@ set foldcolumn=4
 "试探换行符类型的顺序...
 set fileformats=unix,dos
 
-" 打开文件，返回上次光标位置
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
 set wildmenu
 
 " 设置非粘贴模式
@@ -176,6 +175,9 @@ set undofile
 set undodir=~/.vim/undodir
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+
+" 打开文件，返回上次光标位置
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " map keys
 let mapleader = ","
@@ -212,7 +214,7 @@ Bundle 'Python-mode-klen'
 let g:pymode_lint_onfly = 0
 let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
-let g:pymode_lint_checker = 'pyflakes,pep8'
+let g:pymode_lint_checker = 'pyflakes'
 let g:pymode_lint_ignore = 'E501,W0142,F0401,E1103,C0301,W191,E122,E123,E124,E128,E126,E226,E231'
 let g:pymode_rope_guess_project = 0
 autocmd BufWinEnter *.py PyLint
@@ -234,8 +236,17 @@ let g:Powerline_colorscheme = 'solarized256'
 "let g:jedi#related_names_command = "<leader>n"
 "let g:jedi#autocompletion_command = "<C-k>"
 
-" jade
 Bundle 'digitaltoad/vim-jade'
+autocmd BufRead,BufNewFile *.jade set filetype=jade
+Bundle "groenewege/vim-less"
+Bundle "wavded/vim-stylus"
+Bundle "kchmck/vim-coffee-script"
+autocmd BufRead,BufNewFile *.coffee set filetype=coffee
+au bufwritepost *.coffee silent execute '!coffee -cm %'
+
+Bundle "nathanaelkane/vim-indent-guides"
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
 
 try
     source $HOME/.vimrc_custom
