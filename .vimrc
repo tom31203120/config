@@ -24,7 +24,7 @@ Bundle 'plasticboy/vim-markdown'
 " sinppets
 Bundle "SirVer/ultisnips"
 " git
-Bundle 'fugitive.vim'
+Bundle 'tpope/vim-fugitive'
 Bundle 'jnwhiteh/vim-golang'
 " coloscheme
 Bundle 'desertedocean.vim'
@@ -217,7 +217,7 @@ let g:syntastic_python_checkers = ['pylint']
 "autocmd BufWinEnter *.py SyntasticCheck
 
 " python-mode
-Bundle 'Python-mode-klen'
+Bundle 'klen/python-mode'
 let g:pymode_lint_onfly = 0
 let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
@@ -227,21 +227,17 @@ let g:pymode_rope_guess_project = 0
 autocmd BufWinEnter *.py PyLint
 " disable python-mode RopeCodeAssistInsertMode Key binding
 map <C-Space> <nop>
-autocmd filetype python nmap <Leader>g :call RopeGotoDefinition()
+"let g:pymode_rope_autocomplete_map = '<C-k>'
 autocmd filetype python nmap F :PyLintAuto<CR>
-autocmd filetype python inoremap <silent> <C-K> <C-R>=RopeCodeAssistInsertMode()<CR>
 
 " powerline
-Bundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols = 'unicode'
-let g:Powerline_colorscheme = 'solarized256'
+Bundle 'bling/vim-airline'
+let g:airline_theme= 'solarized'
 
 " jedi, disable it for exception when enter insert mode
-"Bundle 'davidhalter/jedi-vim'
-"let g:jedi#popup_on_dot = 0
-"let g:jedi#rename_command = "<leader>r"
-"let g:jedi#related_names_command = "<leader>n"
-"let g:jedi#autocompletion_command = "<C-k>"
+Bundle 'davidhalter/jedi-vim'
+let g:jedi#popup_on_dot = 0
+let g:jedi#autocompletion_command = "<C-k>"
 
 Bundle 'digitaltoad/vim-jade'
 autocmd BufRead,BufNewFile *.jade set filetype=jade
